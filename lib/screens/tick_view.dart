@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:ticktest/utils/app_layout.dart';
 import 'package:ticktest/utils/app_styles.dart';
 import 'package:ticktest/widgets/thick_container.dart';
@@ -62,8 +63,22 @@ class TickView extends StatelessWidget {
 
                       ThickContainer(),
                       Expanded(child: Container()),
-                      Text("Abuja", style: Styles.headLineStyle3.copyWith(color: Colors.white)),
+                      Text("ABJ", style: Styles.headLineStyle3.copyWith(color: Colors.white)),
 
+                    ],
+                  ),
+                  const Gap(3),
+                  //second row
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 100, child: Text("New-City", style: Styles.headLineStyle4.copyWith(color: Colors.white),),
+                      ),
+                      Text("8H 30M", style: Styles.headLineStyle4.copyWith(color: Colors.white),),
+                      SizedBox(
+                        width: 100, child: Text("ABUJA", textAlign: TextAlign.end, style: Styles.headLineStyle4.copyWith(color: Colors.white),),
+                      ),
                     ],
                   )
                 ],
