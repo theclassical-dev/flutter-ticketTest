@@ -65,6 +65,21 @@ class HomeScreen extends StatelessWidget {
                       )
                     ],
                   ),
+                ),
+                const Gap(40),
+                //third row
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Upcoming Tricks", style: Styles.headLineStyle2,),
+                    InkWell(
+                      onTap: (){
+                        print("You are tapped");
+                      },
+                        child: Text("view all", style: Styles.textStyle.copyWith(color: Styles.primaryColor),
+                        )
+                    )
+                  ],
                 )
               ],
             ),
