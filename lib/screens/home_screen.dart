@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+
+import '../utils/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -7,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFeeedf2),
+      backgroundColor: Styles.bgColor,
       body: ListView(
         children: [
           Container(
@@ -15,14 +18,18 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 // first row
+                const Gap(40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                    Column(
                      crossAxisAlignment: CrossAxisAlignment.start,
-                     children: const [
-                       Text("Hello"),
-                       Text("TickT"),
+                     children: [
+                       Text("Hello", style: Styles.headLineStyle3,
+                       ),
+                       const Gap(5),
+                       Text("TickT", style: Styles.headLineStyle,
+                       ),
                      ],
                    ),
                     Container(
