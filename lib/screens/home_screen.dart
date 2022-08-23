@@ -2,6 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:ticktest/screens/hotel_screen.dart';
 import 'package:ticktest/screens/tick_view.dart';
 
 import '../utils/app_styles.dart';
@@ -113,7 +114,20 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
-          )
+          ),
+          const Gap(15),
+          SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: const [
+                  HotelScreen(),
+                  HotelScreen(),
+                  HotelScreen(),
+                  HotelScreen(),
+                ],
+              ),
+          ),
         ],
       ),
     );
