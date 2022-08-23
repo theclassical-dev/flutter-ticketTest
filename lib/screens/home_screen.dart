@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:ticktest/screens/hotel_screen.dart';
 import 'package:ticktest/screens/tick_view.dart';
+import 'package:ticktest/utils/app_info_list.dart';
 
 import '../utils/app_styles.dart';
 
@@ -92,10 +93,7 @@ class HomeScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 20),
             child: Row(
-              children: const [
-                TickView(),
-                TickView()
-              ],
+              children: ticketList.map((singleTicket) => TickView(ticket: singleTicket)).toList()
             ),
           ),
           const Gap(15),
@@ -120,12 +118,7 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.only(left: 20),
               child: Row(
-                children: const [
-                  HotelScreen(),
-                  HotelScreen(),
-                  HotelScreen(),
-                  HotelScreen(),
-                ],
+                children: hotelList.map((singleHotel) => HotelScreen(hotel: singleHotel)).toList()
               ),
           ),
         ],
