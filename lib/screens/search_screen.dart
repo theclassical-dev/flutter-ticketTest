@@ -78,8 +78,52 @@ class SearchScreen extends StatelessWidget {
              ),
              child: Center(child: Text("Find Tickets", style: Styles.textStyle.copyWith(color: Colors.white),))
           ),
+          /* upcoming flights*/
           Gap(AppLayout.getHeight(40)),
-          const AppDoubleTextWidget(bigText: "Upcoming Fights", smallText: "view all")
+          const AppDoubleTextWidget(bigText: "Upcoming Fights", smallText: "view all"),
+          /**/
+          Gap(AppLayout.getHeight(15)),
+          Row(
+            children: [
+              Container(
+                height: AppLayout.getHeight(350),
+                width: size.width*0.42,
+                padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15), vertical: AppLayout.getWidth(15)),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(AppLayout.getHeight(20)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade300,
+                      blurRadius: 1,
+                      spreadRadius: 1
+                    )
+                  ]
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      height: AppLayout.getHeight(190),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(AppLayout.getHeight(12)),
+                        image:const DecorationImage(
+                          fit: BoxFit.cover,
+                          image:AssetImage(
+                            "assets/images/sit.jpg"
+                          )
+                        )
+                      ),
+                    ),
+                    Gap(AppLayout.getHeight(12)),
+                    Text(
+                      "20% discount on the early flight booking of this flight, Don't miss out this chance",
+                      style: Styles.headLineStyle2.copyWith(),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
