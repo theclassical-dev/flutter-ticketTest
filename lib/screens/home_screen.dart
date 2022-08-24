@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:ticktest/screens/hotel_screen.dart';
 import 'package:ticktest/screens/tick_view.dart';
 import 'package:ticktest/utils/app_info_list.dart';
+import 'package:ticktest/widgets/view_all.dart';
 
 import '../utils/app_styles.dart';
 
@@ -71,19 +72,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const Gap(40),
                 //third row
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Upcoming Tricks", style: Styles.headLineStyle2,),
-                    InkWell(
-                      onTap: (){
-                        print("You are tapped");
-                      },
-                        child: Text("view all", style: Styles.textStyle.copyWith(color: Styles.primaryColor),
-                        )
-                    )
-                  ],
-                )
+                const AppDoubleTextWidget(bigText: "Upcoming Fights", smallText: "view all")
               ],
             ),
           ),
@@ -99,19 +88,7 @@ class HomeScreen extends StatelessWidget {
           const Gap(15),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Hotels", style: Styles.headLineStyle2,),
-                InkWell(
-                    onTap: (){
-                      print("You are tapped");
-                    },
-                    child: Text("view all", style: Styles.textStyle.copyWith(color: Styles.primaryColor),
-                    )
-                )
-              ],
-            ),
+            child: const AppDoubleTextWidget(bigText: "Hotels", smallText: "view all"),
           ),
           const Gap(15),
           SingleChildScrollView(

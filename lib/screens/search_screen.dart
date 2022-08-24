@@ -5,6 +5,8 @@ import 'package:ticktest/utils/app_layout.dart';
 import 'package:ticktest/utils/app_styles.dart';
 import 'package:ticktest/widgets/icon_text_widget.dart';
 
+import '../widgets/view_all.dart';
+
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
 
@@ -76,7 +78,8 @@ class SearchScreen extends StatelessWidget {
              ),
              child: Center(child: Text("Find Tickets", style: Styles.textStyle.copyWith(color: Colors.white),))
           ),
-
+          Gap(AppLayout.getHeight(40)),
+          const AppDoubleTextWidget(bigText: "Upcoming Fights", smallText: "view all")
         ],
       ),
     );
