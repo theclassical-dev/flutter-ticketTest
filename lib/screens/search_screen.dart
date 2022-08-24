@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:ticktest/utils/app_layout.dart';
 import 'package:ticktest/utils/app_styles.dart';
+import 'package:ticktest/widgets/icon_text_widget.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -62,20 +63,10 @@ class SearchScreen extends StatelessWidget {
          ),
           /* second  container*/
           Gap(AppLayout.getHeight(25)),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(12), vertical: AppLayout.getHeight(12)),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius:  BorderRadius.circular(AppLayout.getWidth(10),)
-            ),
-            child: Row(
-              children: [
-                const Icon(Icons.flight_takeoff_rounded, color: Color(0xFFBFC2DF),),
-                Gap(AppLayout.getWidth(10)),
-                Text("Departure")
-              ],
-            ),
-          ),
+          const AppIconText(icon: Icons.flight_takeoff_rounded, text: "Departure"),
+          Gap(AppLayout.getHeight(15)),
+          const AppIconText(icon: Icons.flight_land_rounded, text: "Arrival"),
+
         ],
       ),
     );
