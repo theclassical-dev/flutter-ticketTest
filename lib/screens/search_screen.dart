@@ -87,7 +87,7 @@ class SearchScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: AppLayout.getHeight(350),
+                height: AppLayout.getHeight(400),
                 width: size.width*0.42,
                 padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15), vertical: AppLayout.getWidth(15)),
                 decoration: BoxDecoration(
@@ -159,8 +159,43 @@ class SearchScreen extends StatelessWidget {
                     ),
                    ],
                  ),
+                  Gap(AppLayout.getHeight(15)),
                   Container(
-                    
+                    width: size.width*0.44,
+                    height: AppLayout.getHeight(200),
+                    padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15), vertical: AppLayout.getHeight(15)),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(AppLayout.getHeight(18)),
+                      color: const Color(0xFFEC6545)
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Take love",
+                          style: Styles.headLineStyle2.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                        ),
+                        Gap(AppLayout.getHeight(8)),
+                        RichText(
+                          text:const TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '🥰',
+                                style: TextStyle(fontSize: 30)
+                              ),
+                              TextSpan(
+                                  text: '🥰',
+                                  style: TextStyle(fontSize: 48)
+                              ),
+                              TextSpan(
+                                  text: '🥰',
+                                  style: TextStyle(fontSize: 30)
+                              )
+                            ]
+                          )
+                        )
+                      ],
+                    ),
                   )
                 ],
               )
