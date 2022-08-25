@@ -212,6 +212,15 @@ class ProfileScreen extends StatelessWidget {
 
               ],
             ),
+          ),
+          Gap(AppLayout.getHeight(25)),
+          InkWell(
+            onTap: ()=>print("i dey work ooo"),
+            child: Center(
+              child: Text("How to get more Miles",
+                style: Styles.textStyle.copyWith(color: Styles.primaryColor, fontWeight: FontWeight.w500),
+              ),
+            ),
           )
         ],
       ),
