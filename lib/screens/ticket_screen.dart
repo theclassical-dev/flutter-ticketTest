@@ -81,25 +81,41 @@ class TicketScreen extends StatelessWidget {
                       ],
                     ),
 
-
                   ],
                 ),
               ),
               /*barcode*/
-               Container(
-                 padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15)),
-                 child: ClipRRect(
-                   borderRadius: BorderRadius.circular(AppLayout.getHeight(15)),
-                   child: BarcodeWidget(
-                     barcode: Barcode.code128(), data: 'https://github.com/martinovovo',
-                     drawText: false,
-                     color: Styles.textColor,
-                     width: double.infinity,
-                     height: 70,
+              const SizedBox(height: 1),
+              Container(
+                 decoration: BoxDecoration(
+                     color:Colors.white,
+                     borderRadius: BorderRadius.only(
+                     bottomRight: Radius.circular(AppLayout.getHeight(21)),
+                     bottomLeft: Radius.circular(AppLayout.getHeight(21))
+                   )
+                 ),
+                 margin: EdgeInsets.only(left: AppLayout.getHeight(15), right: AppLayout.getHeight(15)),
+                 padding: EdgeInsets.only(top: AppLayout.getHeight(20), bottom: AppLayout.getHeight(20)),
+                 child: Container(
+                   padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15)),
+                   child: ClipRRect(
+                     borderRadius: BorderRadius.circular(AppLayout.getHeight(15)),
+                     child: BarcodeWidget(
+                       barcode: Barcode.code128(), data: 'https://github.com/martinovovo',
+                       drawText: false,
+                       color: Styles.textColor,
+                       width: double.infinity,
+                       height: 70,
 
+                     ),
                    ),
                  ),
-               )
+               ),
+              Gap(AppLayout.getHeight(20)),
+              Container(
+                padding: EdgeInsets.only(left: AppLayout.getHeight(15)),
+                child: TickView(ticket: ticketList[0]),
+              ),
             ],
           )
         ],

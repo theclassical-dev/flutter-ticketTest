@@ -181,19 +181,19 @@ class TickView extends StatelessWidget {
                       //first column
                       AppColumnLayout(
                         firstText:  ticket['date'], secondText: "Date",
-                        alignment: CrossAxisAlignment.start, isColor:false,
+                        alignment: CrossAxisAlignment.start, isColor:isColor,
                       ),
 
                       //second column
                       AppColumnLayout(
                         firstText:  ticket['departure_time'], secondText: "Departure Time",
-                        alignment: CrossAxisAlignment.center, isColor: false,
+                        alignment: CrossAxisAlignment.center, isColor: isColor,
                       ),
 
                       //third column
                       AppColumnLayout(
                         firstText:  ticket['number'].toString(), secondText: "Number",
-                        alignment: CrossAxisAlignment.end, isColor: false,
+                        alignment: CrossAxisAlignment.end, isColor: isColor,
                       ),
 
                     ],
