@@ -2,6 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:ticktest/utils/app_layout.dart';
 
 import '../utils/app_styles.dart';
@@ -85,6 +86,62 @@ class ProfileScreen extends StatelessWidget {
                     },
                       child: Text("Edit", style: Styles.textStyle.copyWith(color: Styles.primaryColor, fontWeight: FontWeight.w300),))
                 ],
+              )
+            ],
+          ),
+          Gap(AppLayout.getHeight(8)),
+          Divider(color: Colors.grey.shade300,),
+          Gap(AppLayout.getHeight(8)),
+          Stack(
+            children: [
+              Container(
+                height: AppLayout.getHeight(90),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Styles.primaryColor,
+                  borderRadius: BorderRadius.circular(AppLayout.getHeight(18))
+                ),
+              ),
+              Positioned(
+                  right: -45,
+                  top: -40,
+                  child: Container(
+                padding: EdgeInsets.all(AppLayout.getHeight(30)),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                    shape: BoxShape.circle,
+                    border: Border.all(width: 18, color: const Color(0xFF264CD2))
+                ),
+              )),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(25), vertical: AppLayout.getHeight(20)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      child: Icon(FluentSystemIcons.ic_fluent_lightbulb_filament_filled,
+                      color: Styles.primaryColor, size: 27,),
+                      maxRadius: 25,
+                      backgroundColor: Colors.white,
+                    ),
+                    Gap(AppLayout.getHeight(12)),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("You\'v got a new reward",
+                          style: Styles.headLineStyle2
+                              .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
+                        ),
+                        Text("You have 95 flights in a year",
+                          style: Styles.headLineStyle2
+                              .copyWith(fontWeight: FontWeight.w500, color: Colors.white.withOpacity(0.9), fontSize: 16),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               )
             ],
           )
