@@ -8,6 +8,8 @@ import 'package:ticktest/utils/app_styles.dart';
 import 'package:ticktest/widgets/column_layout.dart';
 import 'package:ticktest/widgets/tickets_tabs.dart';
 
+import '../widgets/layout_builder_widget.dart';
+import 'package:barcode_widget/barcode_widget.dart';
 class TicketScreen extends StatelessWidget {
   const TicketScreen({Key? key}) : super(key: key);
 
@@ -45,10 +47,59 @@ class TicketScreen extends StatelessWidget {
                         AppColumnLayout(firstText: "55667 67666", secondText: "Passport", alignment: CrossAxisAlignment.end, isColor: false,)
 
                       ],
-                    )
-                    ],
+                    ),
+                    Gap(AppLayout.getHeight(20)),
+                    const AppLayoutBuilderWidget(sections: 15, isColor: false,),
+                    Gap(AppLayout.getHeight(20)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        AppColumnLayout(firstText: "099 545 43563", secondText: "Number of E-ticket", alignment: CrossAxisAlignment.start, isColor: false,),
+                        AppColumnLayout(firstText: "G3UI69", secondText: "Booking Code", alignment: CrossAxisAlignment.end, isColor: false,)
+
+                      ],
+                    ),
+                    Gap(AppLayout.getHeight(20)),
+                    const AppLayoutBuilderWidget(sections: 15, isColor: false,),
+                    Gap(AppLayout.getHeight(20)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset("assets/images/visa.png", scale: 11,),
+                                Text(" *** 2345", style: Styles.headLineStyle3,),
+                              ],
+                            ),
+                            Gap(5),
+                            Text("Payment Method", style: Styles.headLineStyle4,),
+                          ],
+                        ),
+                        const AppColumnLayout(firstText: "\$455.99", secondText: "Price", alignment: CrossAxisAlignment.end, isColor: false,),
+                      ],
+                    ),
+
+
+                  ],
                 ),
-              )
+              ),
+              /*barcode*/
+               Container(
+                 padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15)),
+                 child: ClipRRect(
+                   borderRadius: BorderRadius.circular(AppLayout.getHeight(15)),
+                   child: BarcodeWidget(
+                     barcode: Barcode.code128(), data: 'https://github.com/martinovovo',
+                     drawText: false,
+                     color: Styles.textColor,
+                     width: double.infinity,
+                     height: 70,
+
+                   ),
+                 ),
+               )
             ],
           )
         ],

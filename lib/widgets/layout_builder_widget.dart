@@ -5,7 +5,9 @@ import '../utils/app_layout.dart';
 
 class AppLayoutBuilderWidget extends StatelessWidget {
   final bool? isColor;
-  const AppLayoutBuilderWidget({Key? key, this.isColor}) : super(key: key);
+  final int sections;
+  final double width;
+  const AppLayoutBuilderWidget({Key? key, this.isColor, required this.sections, this.width=5}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +22,10 @@ class AppLayoutBuilderWidget extends StatelessWidget {
           MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
           children: List.generate(
-              (constraints.constrainWidth() / 6)
+              (constraints.constrainWidth() / sections)
                   .floor(),
                   (index) => SizedBox(
-                width: AppLayout.getWidth(5),
+                width: AppLayout.getWidth(width),
                 height: AppLayout.getHeight(1),
                 child: DecoratedBox(
                   decoration: BoxDecoration(

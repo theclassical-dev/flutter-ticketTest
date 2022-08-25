@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:ticktest/utils/app_layout.dart';
 import 'package:ticktest/utils/app_styles.dart';
+import 'package:ticktest/widgets/layout_builder_widget.dart';
 import 'package:ticktest/widgets/thick_container.dart';
 
 import '../widgets/column_layout.dart';
@@ -51,30 +52,7 @@ class TickView extends StatelessWidget {
                         children: [
                           SizedBox(
                             height: AppLayout.getHeight(24),
-                            child: LayoutBuilder(
-                              builder: (BuildContext context,
-                                  BoxConstraints constraints) {
-                                print(
-                                    "the width is ${constraints.constrainWidth()}");
-                                return Flex(
-                                  direction: Axis.horizontal,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: List.generate(
-                                      (constraints.constrainWidth() / 6)
-                                          .floor(),
-                                      (index) => SizedBox(
-                                            width: AppLayout.getWidth(5),
-                                            height: AppLayout.getHeight(1),
-                                            child: DecoratedBox(
-                                              decoration: BoxDecoration(
-                                                  color: isColor==null ? Colors.white :Colors.grey.shade300),
-                                            ),
-                                          )),
-                                );
-                              },
-                            ),
+                            child: const AppLayoutBuilderWidget(sections: 6,)
                           ),
                           Center(
                               child: Transform.rotate(
