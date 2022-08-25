@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:ticktest/utils/app_layout.dart';
+import 'package:ticktest/widgets/column_layout.dart';
 
 import '../utils/app_styles.dart';
+import '../widgets/layout_builder_widget.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -144,6 +146,72 @@ class ProfileScreen extends StatelessWidget {
                 ),
               )
             ],
+          ),
+          Gap(AppLayout.getHeight(25)),
+          Text("Accumulated miles", style: Styles.headLineStyle2,),
+          Gap(AppLayout.getHeight(25)),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppLayout.getWidth(18)),
+              color: Styles.bgColor,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.shade300,
+                  blurRadius: 1,
+                  spreadRadius: 1
+                )
+              ],
+            ),
+            child: Column(
+              children: [
+                Text("190786", style: TextStyle(
+                  fontSize: 45, color: Styles.textColor, fontWeight: FontWeight.w500
+                ),
+                ),
+                Gap(AppLayout.getHeight(20)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Miles accrued", style: Styles.headLineStyle4.copyWith(fontSize: 16),),
+                    Text("11 June 2022", style: Styles.headLineStyle4.copyWith(fontSize: 16),),
+
+                  ],
+                ),
+                Divider(color: Colors.grey.shade300,),
+                Gap(AppLayout.getHeight(4)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    AppColumnLayout(firstText: "23 096", secondText: "Miles", alignment: CrossAxisAlignment.start, isColor: false,),
+                    AppColumnLayout(firstText: "Airline CO", secondText: "Received From", alignment: CrossAxisAlignment.end , isColor: false,),
+
+                  ],
+                ),
+                Gap(AppLayout.getHeight(12)),
+                const AppLayoutBuilderWidget(sections: 12, isColor: false,),
+                Gap(AppLayout.getHeight(12)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    AppColumnLayout(firstText: "23", secondText: "Miles", alignment: CrossAxisAlignment.start, isColor: false,),
+                    AppColumnLayout(firstText: "McDanny", secondText: "Received From", alignment: CrossAxisAlignment.end , isColor: false,),
+                  ],
+                ),
+                Gap(AppLayout.getHeight(12)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    AppColumnLayout(firstText: "67 908", secondText: "Miles", alignment: CrossAxisAlignment.start, isColor: false,),
+                    AppColumnLayout(firstText: "Yakuza", secondText: "Received From", alignment: CrossAxisAlignment.end , isColor: false,),
+                  ],
+                ),
+                Gap(AppLayout.getHeight(12)),
+
+
+
+              ],
+            ),
           )
         ],
       ),
