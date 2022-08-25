@@ -1,20 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:ticktest/utils/app_layout.dart';
 import 'package:ticktest/utils/app_styles.dart';
 import 'package:ticktest/widgets/thick_container.dart';
 
 class TickView extends StatelessWidget {
   final Map<String, dynamic> ticket;
-  const TickView({Key? key, required this.ticket}) : super(key: key);
+  final bool? isColor;
+  const TickView({Key? key, required this.ticket, this.isColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return SizedBox(
       width: size.width * 0.8,
-      height: AppLayout.getHeight(200),
+      height: AppLayout.getHeight(GetPlatform.isAndroid==true?161:169),
       child: Container(
         margin: EdgeInsets.only(right: AppLayout.getHeight(16)),
         child: Column(
@@ -25,7 +27,7 @@ class TickView extends StatelessWidget {
             * */
             Container(
               decoration: BoxDecoration(
-                  color: Color(0xFF526799),
+                  color: isColor == null ? Color(0xFF526799):Colors.white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(AppLayout.getHeight(21)),
                       topRight: Radius.circular(AppLayout.getHeight(21)))),
@@ -36,12 +38,12 @@ class TickView extends StatelessWidget {
                   Row(
                     children: [
                       Text(ticket['from']['code'],
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Colors.white)),
+                          style: isColor==null? Styles.headLineStyle3.copyWith(color: Colors.white): Styles.headLineStyle3
+                      ),
                       // const Spacer(),
                       Expanded(child: Container()),
                       //the small cricle
-                      ThickContainer(),
+                      ThickContainer(isColor:true),
                       Expanded(
                           child: Stack(
                         children: [
@@ -65,7 +67,7 @@ class TickView extends StatelessWidget {
                                             height: AppLayout.getHeight(1),
                                             child: DecoratedBox(
                                               decoration: BoxDecoration(
-                                                  color: Colors.white),
+                                                  color: isColor==null ? Colors.white :Colors.grey.shade300),
                                             ),
                                           )),
                                 );
@@ -77,16 +79,15 @@ class TickView extends StatelessWidget {
                                   angle: 1.5,
                                   child: Icon(
                                     Icons.local_airport_rounded,
-                                    color: Colors.white,
+                                    color: isColor==null ? Colors.white :const Color(0xFF8ACCF7),
                                   ))),
                         ],
                       )),
-
-                      ThickContainer(),
+                      ThickContainer(isColor:true),
                       Expanded(child: Container()),
                       Text(ticket['to']['code'],
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Colors.white)),
+                          style: isColor==null ? Styles.headLineStyle3
+                              .copyWith(color: Colors.white): Styles.headLineStyle3),
                     ],
                   ),
                   const Gap(3),
@@ -98,22 +99,22 @@ class TickView extends StatelessWidget {
                         width: AppLayout.getWidth(100),
                         child: Text(
                           ticket['from']['name'],
-                          style: Styles.headLineStyle4
-                              .copyWith(color: Colors.white),
+                          style: isColor==null ? Styles.headLineStyle4
+                              .copyWith(color: Colors.white) : Styles.headLineStyle4,
                         ),
                       ),
                       Text(
                         ticket['flying_time'],
                         style:
-                            Styles.headLineStyle4.copyWith(color: Colors.white),
+                           isColor==null ? Styles.headLineStyle4.copyWith(color: Colors.white): Styles.headLineStyle4,
                       ),
                       SizedBox(
                         width: AppLayout.getWidth(100),
                         child: Text(
                           ticket['to']['name'],
                           textAlign: TextAlign.end,
-                          style: Styles.headLineStyle4
-                              .copyWith(color: Colors.white),
+                          style: isColor==null ? Styles.headLineStyle4
+                              .copyWith(color: Colors.white): Styles.headLineStyle4,
                         ),
                       ),
                     ],
@@ -125,7 +126,7 @@ class TickView extends StatelessWidget {
             *showing the orange part of the card
             * */
             Container(
-              color: Styles.orangeColor, //const Color(0xFFF37B67),
+              color: isColor==null ? Styles.orangeColor :Colors.white, //const Color(0xFFF37B67),
               child: Row(
                 children: [
                   SizedBox(
@@ -143,7 +144,7 @@ class TickView extends StatelessWidget {
                   ),
                   Expanded(
                       child: Padding(
-                    padding: const EdgeInsets.all(12.0),
+                    padding: const EdgeInsets.all(6.0),
                     child: LayoutBuilder(
                       builder:
                           (BuildContext context, BoxConstraints constraints) {
@@ -158,7 +159,9 @@ class TickView extends StatelessWidget {
                                     height: AppLayout.getHeight(1),
                                     child: DecoratedBox(
                                       decoration:
-                                          BoxDecoration(color: Colors.white),
+                                          BoxDecoration(
+                                              color: isColor==null ?  Colors.white : Colors.grey.shade300
+                                          ),
                                     ),
                                   )),
                         );
@@ -184,10 +187,10 @@ class TickView extends StatelessWidget {
             * */
             Container(
               decoration: BoxDecoration(
-                  color: Styles.orangeColor,
+                  color: isColor==null ? Styles.orangeColor : Colors.white,
                   borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(AppLayout.getHeight(21)),
-                      bottomRight: Radius.circular(AppLayout.getHeight(21)))),
+                      bottomLeft: Radius.circular(AppLayout.getHeight(isColor==null ? 21 : 0)),
+                      bottomRight: Radius.circular(AppLayout.getHeight(isColor==null ? 21 : 0)))),
               padding: const EdgeInsets.only(
                   left: 16, top: 10, right: 16, bottom: 16),
               child: Column(
@@ -201,14 +204,14 @@ class TickView extends StatelessWidget {
                         children: [
                           Text(
                             ticket['date'],
-                            style: Styles.headLineStyle3
-                                .copyWith(color: Colors.white),
+                            style: isColor==null ?  Styles.headLineStyle3
+                                .copyWith(color: Colors.white) : Styles.headLineStyle3,
                           ),
                           const Gap(5),
                           Text(
                             "Date",
-                            style: Styles.headLineStyle4
-                                .copyWith(color: Colors.white),
+                            style: isColor==null ?  Styles.headLineStyle4
+                                .copyWith(color: Colors.white) : Styles.headLineStyle4,
                           )
                         ],
                       ),
@@ -218,14 +221,14 @@ class TickView extends StatelessWidget {
                         children: [
                           Text(
                             ticket['departure_time'],
-                            style: Styles.headLineStyle3
-                                .copyWith(color: Colors.white),
+                            style: isColor==null ?  Styles.headLineStyle3
+                                .copyWith(color: Colors.white) : Styles.headLineStyle3,
                           ),
                           const Gap(5),
                           Text(
                             "Departure Time",
-                            style: Styles.headLineStyle4
-                                .copyWith(color: Colors.white),
+                            style: isColor==null ?  Styles.headLineStyle4
+                                .copyWith(color: Colors.white) : Styles.headLineStyle4,
                           )
                         ],
                       ),
@@ -235,14 +238,14 @@ class TickView extends StatelessWidget {
                         children: [
                           Text(
                             ticket['number'].toString(),
-                            style: Styles.headLineStyle3
-                                .copyWith(color: Colors.white),
+                            style: isColor==null ?  Styles.headLineStyle3
+                                .copyWith(color: Colors.white) : Styles.headLineStyle3,
                           ),
                           const Gap(5),
                           Text(
                             "Number",
-                            style: Styles.headLineStyle4
-                                .copyWith(color: Colors.white),
+                            style: isColor==null ?  Styles.headLineStyle4
+                                .copyWith(color: Colors.white) : Styles.headLineStyle4,
                           )
                         ],
                       )
